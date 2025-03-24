@@ -21,6 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             "init_robot_pose=windbot_application.init_robot_pose:main",
+            "get_robot_pose=windbot_application.get_robot_pose:main",
+            "nav_to_pose=windbot_application.nav_to_pose:main",
         ],
     },
 )
