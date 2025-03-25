@@ -20,8 +20,7 @@ def main():
     while not navigator.isTaskComplete():
         feedback=navigator.getFeedback()
         navigator.get_logger().info(
-            f'预计：{Duration.from_msg(feedback.estimated_time_remaining).
-                  nanoseconds/1e9}s 后到达')
+            f'预计：{Duration.from_msg(feedback.estimated_time_remaining).nanoseconds/1e9}s 后到达')
         # 超时自动取消
         if Duration.from_msg(feedback.navigation_time)>Duration(seconds=600.0):
             navigator.cancelTask()
@@ -29,9 +28,9 @@ def main():
         result=navigator.getResult()
         if result==TaskResult.SUCCEEDED:
             navigator.get_logger().info('导航结果：成功')
-        if result==TaskResult.CANCELED:
+        elif result==TaskResult.CANCELED:
             navigator.get_logger().info('导航结果：被取消')
-        if result==TaskResult.FAILED:
+        elif result==TaskResult.FAILED:
             navigator.get_logger().info('导航结果：失败')
         else:
             navigator.get_logger().error('导航结果：返回状态无效')
