@@ -12,10 +12,14 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(nav2_msgs REQUIRED)
 
 add_executable(get_robot_pose_c src/get_robot_pose_c.cpp)
 
+add_executable(nav_to_pose src/nav_to_pose.cpp)
+
 ament_target_dependencies(get_robot_pose_c rclcpp tf2 tf2_ros geometry_msgs tf2_geometry_msgs)
+ament_target_dependencies(nav_to_pose rclcpp rclcpp_action nav2_msgs)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -29,7 +33,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(TARGETS get_robot_pose_c
+install(TARGETS get_robot_pose_c nav_to_pose
 DESTINATION lib/${PROJECT_NAME}
 
 )
