@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>autopatrol_interfaces</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="1246750626@qq.com">kind</maintainer>
+  <!-- 建议明确指定许可证 -->
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <!-- 构建工具依赖 -->
+  <depend>rosidl_default_generators</depend>
+  <!-- 运行时依赖 -->
+  <depend>rosidl_default_runtime</depend>
+
+  <!-- 修改 member_of_group 标签内容 -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <!-- 对于接口包，通常还需要添加以下导出信息 -->
+    <rosidl_interface_packages>
+      <name>autopatrol_interfaces</name>
+    </rosidl_interface_packages>
+  </export>
+</package>
