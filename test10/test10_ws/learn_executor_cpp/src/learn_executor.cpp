@@ -2,6 +2,8 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 #include <sstream>
+#include <thread>  // 新增头文件
+
 class LearnExecutorNode:public rclcpp::Node
 {
     public:
@@ -9,8 +11,9 @@ class LearnExecutorNode:public rclcpp::Node
         {
             publisher_=this->create_publisher<std_msgs::msg::String>("string_topic",
             10);
+            // 添加取地址符 &
             timer_=this->create_wall_timer(std::chrono::seconds(1),
-                std::bind(LearnExecutorNode::timer_callback,this));
+                std::bind(&LearnExecutorNode::timer_callback,this));
 
             service_=this->create_service<example_interfaces::srv::AddTwoInts>(
                 "add_two_ints",
@@ -46,9 +49,10 @@ class LearnExecutorNode:public rclcpp::Node
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr service_;
-};      
+};
+
 int main(int argc,char**argv)
-{   
+{
     rclcpp::init(argc,argv);
     auto node=std::make_shared<LearnExecutorNode>();
     auto executor=rclcpp::executors::SingleThreadedExecutor();
