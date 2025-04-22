@@ -11,6 +11,10 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(example_interfaces REQUIRED)
 
+add_executable(learn_executor src/learn_executor.cpp)
+ament_target_dependencies(learn_executor
+  rclcpp example_interfaces std_msgs
+)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
