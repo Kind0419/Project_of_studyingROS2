@@ -64,14 +64,14 @@ colcon build
 
 ```
 source install/setup.bash
-ros2 launch fishbot_description gazebo_sim.launch.py
+ros2 launch windbot_description gazebo_sim.launch.py
 ```
 
 运行导航
 
 ```
 source install/setup.bash
-ros2 launch fishbot_navigation2 navigation2.launch.py
+ros2 launch windbot_navigation2 navigation2.launch.py
 ```
 
 运行自动巡检
@@ -87,3 +87,5 @@ ros2 launch autopatrol_robot autopatrol.launch.py
 
 ## 本人操作  
 在test07的src里面添加了cpp的代码实例
+
+
